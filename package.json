@@ -1,0 +1,27 @@
+{
+  "name": "librarian_bot",
+  "version": "1.0.0",
+  "description": "A librarian bot for discord to make people shut their mouths",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ChristianJPH/Librarian-Bot.git"
+  },
+  "keywords": [
+    "librarian",
+    "discord-bot"
+  ],
+  "author": "Christian Perez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChristianJPH/Librarian-Bot/issues"
+  },
+  "homepage": "https://github.com/ChristianJPH/Librarian-Bot#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.3.1"
+  }
+}
