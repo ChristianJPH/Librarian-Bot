@@ -1,6 +1,7 @@
 'use strict';
 
-// Get token and prefix from config file
+// Get token and prefix from config file 
+// necesitas un json con un prefijo para el bot y el token del bot que vayas a usar 
 const { prefix, token } = require('./config.json');
 
 /**
@@ -23,11 +24,7 @@ client.on('ready', () => {
 
 // Create an event listener for messages
 client.on('message', message => {
-  // If the message is "ping"
-  if (message.content === 'ping') {
-    // Send "pong" to the same channel
-    message.channel.send('callarse catalufos');
-  }
+  // Si el bot no está en el canal no puede saber si están hablando usa !join y entra 
   if (message.content === `${prefix}join`) {
     if (message.member.voice.channelID !== undefined) {
       const channel = client.channels.cache.get(message.member.voice.channelID);
@@ -37,15 +34,6 @@ client.on('message', message => {
       }).catch(e => {
         // Oh no, it errored! Let's log it to console :)
         console.error(e);
-      });
-      channel.members.forEach((guildMember, memberId) => {
-        //debug
-        message.channel.send(guildMember.user.username)
-        console.log("-----------------------------------")
-        //activates when user speaks DOESN'T WORK
-        if (guildMember.voice.speaking){
-          message.channel.send('Cállate la puta boca');
-        }
       });
     } else {
       message.channel.send('Bobo o qué no estás en ningún canal de voz');
@@ -58,7 +46,6 @@ client.on("guildMemberSpeaking", function(member, speaking){
     const channel = client.channels.cache.find(channel => channel.name === "biblioteca")
     channel.send(member.user.username + " cállate la puta boca")
   }
-
 });
 
 // Log our bot in using the token from https://discord.com/developers/applications
